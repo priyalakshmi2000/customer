@@ -1,0 +1,178 @@
+<html>
+    <head>
+        <div class="container-fluid">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>
+        {% load static %}
+    <STYLE>
+        .card{
+            border-radius: 2%;
+            border-color: rgb(190, 184, 184);
+            box-shadow: 0 4px 8px 0 rgba(132, 6, 6, 0.2), 0 6px 20px 0 rgba(187, 189, 187, 0.19);
+            
+        }
+        .card:hover{
+          animation: shake 1s;  
+         }
+         .fil:hover{
+          animation: shake 1s;  
+         }
+         @keyframes shake {
+  0% {transform: translate(2px, 2px) rotate(0deg); }
+         }
+    </STYLE>
+    </head>
+    <body>
+        
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+            <img src="{% static 'images/logo2.png' %}" style="width:50px;height:60px" class="navbar-brand">
+            <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;font-size: 17px;margin-top:1%;color: rgb(99, 50, 234);" class="navbar-brand">ANAMIKA ENTERPRISES</p>
+            <a href="#" style="margin-left: 70%;" class="nav-item">HOME</a>&nbsp&nbsp&nbsp
+            <a href="#" class="nav-item">ADDUSER</a>
+            </nav>
+            <hr>
+        
+        
+        
+    <center><p  style="font-size: 35px;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">OUR CUSTOMERS</p></center>
+    
+    <center> 
+        
+        <div class="input-group" style="width:30%;margin-bottom: 3%;">
+            <div class="input-group-prepend">
+                <button id="a_z" class="btn btn-info btn-outline-secondary a_z" type="button"><i class="bi bi-sort-alpha-down" style="font-size:25px"></i></button>
+                <button id="z_a" class="btn btn-info btn-outline-secondary a_z" type="button"><i class="bi bi-sort-alpha-down-alt" style="font-size: 25px;"></i></button>
+              </div>
+       <input type="text" id="username"  style="width:60%" class="input-group-prepend" placeholder="enter a customer name"> 
+       <button type="submit" id="btn" class="btn btn-primary input-group-append"> <i class="bi bi-search" style="margin-top: 30%;"></i></button>
+    </div>  
+
+    <script>
+        $(document).ready(function(){
+            $('.a_z').click(function(){
+                var cards=($(this).attr('id'));
+                $.ajax({
+                url : '/check',
+                type : 'POST',
+                data : JSON.stringify({
+                    card_id: cards,
+                }),
+            success : function(response){
+            $('#d2').html(response);
+            }
+        });
+            })
+        })
+
+        $(document).ready(function(){
+            $('#btn').click(function(){
+                var user=$('#username').val();
+                $.ajax({
+            url : '/search',
+            type : 'POST',
+            data : JSON.stringify({
+                username: user,
+            }),
+            success : function(response){
+            $('#d2').html(response);
+            }
+        });
+        document.getElementById('username').value=""
+            })
+        })
+    </script>
+    
+</center>
+    <div class="filter" style="margin-left: 220px;margin-bottom: 30px;">
+        <button id="all" class="btn btn-secondary fil" >ALL</button> 
+        <button id="a" class="btn btn-dark fil" >A</button>
+        <button id="b" class="btn btn-dark fil">B</button>
+        <button id="c" class="btn btn-dark fil" >C</button>
+        <button id="d" class="btn btn-dark fil" >D</button>
+        <button id="e" class="btn btn-dark fil" >E</button>
+        <button id="f" class="btn btn-dark fil" >F</button>
+        <button id="g" class="btn btn-dark fil" >G</button>
+        <button id="h" class="btn btn-dark fil" >H</button>
+        <button id="i" class="btn btn-dark fil" >I</button>
+        <button id="j" class="btn btn-dark fil" >J</button>
+        <button id="k" class="btn btn-dark fil" >K</button>
+        <button id="l" class="btn btn-dark fil" >L</button>
+        <button id="m" class="btn btn-dark fil" >M</button>
+        <button id="n" class="btn btn-dark fil" >N</button>
+        <button id="o" class="btn btn-dark fil" >O</button>
+        <button id="p" class="btn btn-dark fil" >P</button>
+        <button id="q" class="btn btn-dark fil" >Q</button>
+        <button id="r" class="btn btn-dark fil" >R</button>
+        <button id="s" class="btn btn-dark fil" >S</button>
+        <button id="t" class="btn btn-dark fil" >T</button>
+        <button id="u" class="btn btn-dark fil" >U</button>
+        <button id="v" class="btn btn-dark fil" >V</button>
+        <button id="w" class="btn btn-dark fil" >W</button>
+        <button id="x" class="btn btn-dark fil" >X</button>
+        <button id="y" class="btn btn-dark fil" >Y</button>
+        <button id="z" class="btn btn-dark fil" >Z</button> 
+
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('.fil').click(function(){
+                var cards=($(this).attr('id'));
+                $.ajax({
+                url : '/check',
+                type : 'POST',
+                data : JSON.stringify({
+                    card_id: cards,
+                }),
+            success : function(response){
+            $('#d2').html(response);
+            }
+        });
+            })
+
+
+        })
+    </script>
+    <div id="d2">
+    
+        <div class="row justify-content-center" style="padding-left: 80px;object-fit: cover;" >
+            {% for i in lis %}
+            <div class="col-3" style="padding-bottom:20px">
+               
+                <div class="card" style="width: 18rem; ">
+                    {% if i.0 %}
+                    <img class="card-img-top" src="media/image/{{i.0}}"  style="width: 250px;height:300px;margin-left:  7%;margin-top: 10%; object-fit: cover;">
+                    {% else %}
+                    <img class="card-img-top" src="{% static 'images/default.jpg' %}"  style="width: 250px;height:300px;margin-left:  7%;margin-top: 10%; object-fit: cover;filter: blur(1px);object-fit: cover;">
+                    {% endif %}
+                    <div class="card-body" style="height:200px;object-fit: cover">
+                      <h5 class="card-title" style="font-family:Arial, Helvetica, sans-serif;font-size: 25px;object-fit: cover;font-weight: 700;">{{i.1}}</h5>
+                    
+                      <p class="card-text" style="font-size:large; color: blue;object-fit: cover;">{{i.2}}</p>
+                      {% if i.3|length > 1 %}
+
+                      <p class="card-text" style="object-fit: cover;width:150px;height: 18px;">O: {{i.3.0}}</p>
+                      <p class="card-text" style="object-fit: cover;width:150px;height: 18px;">M: {{i.3.1}}</p>
+
+                      {% elif i.3|length == 1  %}
+                      <p class="card-text" style="object-fit: cover;width:150px;height: 52px;">O: {{i.3.0}}</p>
+
+                      {% endif %}
+                      <p class="card-text" style="font-size: smaller; color: rgb(161, 10, 15);object-fit: cover; ">{{i.4}}</p>
+                      
+                    </div>
+                    
+                </div>
+                      
+            </div>
+            {% endfor %}  
+            
+        </div>
+        
+      
+    </div>
+    </body>
+</html>
