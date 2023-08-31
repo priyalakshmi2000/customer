@@ -1,0 +1,13 @@
+use gabriels;
+create table customer(id int primary key auto_increment,username varchar(50),address nvarchar(70),phone nvarchar(70),mail varchar(50),image nvarchar(70),dateupdated datetime);
+insert into customer(username,address,phone,mail,image,dateupdated) values("Harry Potter","London","6381342673,7896541230","harry@gmail.com","harry.jpg",now());
+insert into customer(username,address,phone,mail,image,dateupdated) values ("Hermoine","London","9874563210,7788896410","hermione@gmail.com","hermione.jpg",now());
+insert into customer(username,address,phone,mail,image,dateupdated) values("Ron Weasely","London","9659306207,9360024527","ron@gmail.com","ron.jpg",now());
+insert into customer(username,address,phone,mail,image,dateupdated) values("Selina Gomez","USA","7871960860,9384208401","selina@gmail.com","selina.png",now());
+insert into customer(username,address,phone,mail,image,dateupdated) values("Sindhu","Indhu","8825579037,8825569471","sindhu@gmail.com","sindhu.jpg",now());
+insert into customer(username,address,phone,mail,image,dateupdated) values("Millie Bobby Brown","France","6381883245,9080131930","millie@gmail.com","millie.jpg",now());
+insert into customer(username,address,phone,mail,image,dateupdated) values("Mary Kom","madurai","9080731608,8870360541","mary@gmail.com","marykom.jpg",now());
+insert into customer(username,address,phone,mail,dateupdated) values("Alex","madurai","9942002668,8852278027","alex@gmail.com",now());
+insert into customer(username,address,phone,mail,image,dateupdated) values("Scarlett Johansson","France","9563287410","scarlett@gmail.com","scarlett.jpg",now());
+insert into customer(username,address,phone,mail,image,dateupdated) values("Muniba Mazari","Pakistan","8965412302,8855223366","muniba@gmail.com","muniba.jpg",now());
+insert into customer(username,address,phone,mail,image,dateupdated) values("Shakthisri Gopalan","India","9963258741","shakthi@gmail.com","shakthi.jpg",now());
